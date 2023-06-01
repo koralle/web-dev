@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, user-scalable=1"
+    />
+    <title>HTML Dialog Sample</title>
+  </head>
+  <body>
+    <dialog id="dialog">
+      <form method="dialog">
+        <button type="submit" aria-label="close" autofocus>CLOSE</button>
+      </form>
+      <h2>Dialog</h2>
+    </dialog>
+
+    <button id="modal">OPEN as Modal</button>
+    <button id="modalless">OPEN as Modalless</button>
+
+    <a href="https://web.dev/learn/html/dialog" target="ref">Refs</a>
+
+    <script>
+      const dialog = document.getElementById("dialog");
+      const modal = document.getElementById("modal");
+      const modalless = document.getElementById("modalless");
+
+      modal.addEventListener("click", (event) => {
+        dialog.showModal();
+      });
+
+      modalless.addEventListener("click", (event) => {
+        dialog.show();
+      });
+
+      dialog.addEventListener("close", (event) => {
+        dialog.close();
+      });
+    </script>
+  </body>
+</html>
